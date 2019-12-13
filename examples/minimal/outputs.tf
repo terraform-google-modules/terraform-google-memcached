@@ -15,11 +15,11 @@
  */
 output "instances" {
   description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.self_link
+  value       = module.memcached-instances.instances
 }
 
 output "instance_names" {
   description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.name
+  value       = module.memcached-instances.instance_names
 }
 

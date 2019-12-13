@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-output "instances" {
-  description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.self_link
+
+variable "project_id" {
+  type        = string
+  description = "The project to create test resources within."
 }
 
-output "instance_names" {
-  description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.name
+variable "service_account" {
+  type        = string
+  description = "The service account e-mail address. If not given, the default Google Compute Engine service account is used"
 }
-

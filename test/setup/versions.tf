@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,21 +14,14 @@
  * limitations under the License.
  */
 
-variable "resource_name" {
-  description = "resource name prefix"
-  default     = "kt-test"
+terraform {
+  required_version = "~> 0.12.12"
 }
 
-variable "project_name" {
-  description = "name of the GCP project to create resources within"
+provider "google" {
+  version = "~> 2.10.0"
 }
 
-variable "environment" {
-  description = "the environment in which we create the test resources"
-  default     = "tst"
-}
-
-variable "region" {
-  description = "Region in which we create resources"
-  default     = "us-west1"
+provider "google-beta" {
+  version = "~> 2.10.0"
 }
