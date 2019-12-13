@@ -34,23 +34,3 @@ suites:
           backend: gcp
           controls:
             - minimal
-
-#provisioner:
-#  name: terraform
-#
-#platforms:
-#  - name: default
-#
-#suites:
-#  - name: minimal
-#    driver:
-#      name: terraform
-#      root_module_directory: test/fixtures/minimal/
-#    verifier:
-#      color: false
-#      name: terraform
-#      systems:
-#        - name: minimal local
-#          backend: local
-#          controls:
-#            - minimal
