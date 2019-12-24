@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Copyright 2018 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -32,10 +32,10 @@ install_memcached() {
         apt-get -y install memcached netcat
         apt-get -y install apache2
     else
-        echo $OS
-        echo $VERSION
+        echo "$OS"
+        echo "$VERSION"
     fi
-    
+
 }
 
 create_log_dir()
@@ -52,7 +52,7 @@ MAXCONN="1024"
 CACHESIZE="2048"
 OPTIONS="-t 4 -v >> /data1/applogs/memcached/memcached.log 2>&1"
 EOF
-        elif [ "$OS" = "debian" ] ;then
+      elif [ "$OS" = "debian" ] ;then
 cat <<EOF > /etc/memcached.conf
 # memcached default config file
 # 2003 - Jay Bonci <jaybonci@debian.org>
@@ -91,8 +91,8 @@ logfile /var/log/memcached.log
 # -r
 EOF
     else
-        echo $OS
-        echo $VERSION
+        echo "$OS"
+        echo "$VERSION"
     fi
 }
 
@@ -116,12 +116,11 @@ httpd_start(){
         elif [ "$OS" = "debian" ] ;then
         systemctl restart apache2
     else
-        echo $OS
-        echo $VERSION
+        echo "$OS"
+        echo "$VERSION"
     fi
 }
 
-#main
 install_memcached
 create_log_dir
 configure_memcache

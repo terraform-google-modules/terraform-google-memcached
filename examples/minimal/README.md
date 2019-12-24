@@ -7,7 +7,8 @@ This is a module to bring up a memcached instance.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|:----:|:-----:|:-----:|
-| project\_id | The project to create test resources within. | string | n/a | yes |
+| project\_id | The project ID to create resources within | string | n/a | yes |
+| region | Region to create resources in | string | `"us-central1"` | no |
 | service\_account | The service account e-mail address. If not given, the default Google Compute Engine service account is used | string | n/a | yes |
 
 ## Outputs
@@ -15,10 +16,9 @@ This is a module to bring up a memcached instance.
 | Name | Description |
 |------|-------------|
 | instance\_names | List of self_links for compute instances |
-| project\_id | Name of the project in which test fixtures were created. The test suite consumes this value. |
+| instances | List of self_links for compute instances |
 
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
-
 
 ## Verification
 

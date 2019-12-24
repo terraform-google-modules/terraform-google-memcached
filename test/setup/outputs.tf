@@ -13,13 +13,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-output "instances" {
-  description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.self_link
+
+output "project_id" {
+  value = module.project-ci-int-memcached.project_id
 }
 
-output "instance_names" {
-  description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.name
+output "service_account" {
+  value = google_service_account.int_test.email
+}
+
+output "sa_key" {
+  value     = google_service_account_key.int_test.private_key
+  sensitive = true
 }
 

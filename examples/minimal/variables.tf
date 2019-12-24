@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,3 +14,18 @@
  * limitations under the License.
  */
 
+variable "project_id" {
+  type        = string
+  description = "The project ID to create resources within"
+}
+
+variable "region" {
+  type        = string
+  description = "Region to create resources in"
+  default     = "us-central1"
+}
+
+variable "service_account" {
+  type        = string
+  description = "The service account e-mail address. If not given, the default Google Compute Engine service account is used"
+}

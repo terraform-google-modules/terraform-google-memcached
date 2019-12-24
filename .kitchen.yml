@@ -1,4 +1,4 @@
-# Copyright 2018 Google LLC
+# Copyright 2019 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -13,18 +13,12 @@
 # limitations under the License.
 
 ---
+
 provisioner:
   name: terraform
 
 platforms:
   - name: local
-
-verifier:
-  name: terraform
-  color: false
-  systems:
-    - name: system
-      backend: local
 
 suites:
   - name: minimal
@@ -32,3 +26,11 @@ suites:
       name: terraform
       command_timeout: 1800
       root_module_directory: test/fixtures/minimal
+    verifier:
+      name: terraform
+      color: true
+      systems:
+        - name: inspec-gcp
+          backend: gcp
+          controls:
+            - minimal

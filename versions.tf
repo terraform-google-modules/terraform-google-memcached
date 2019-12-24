@@ -13,13 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-output "instances" {
-  description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.self_link
-}
 
-output "instance_names" {
-  description = "List of self_links for compute instances"
-  value       = google_compute_instance.memcached.*.name
+terraform {
+  required_version = "~> 0.12.12"
 }
-

@@ -14,8 +14,33 @@
  * limitations under the License.
  */
 
-module "example" {
-  source          = "../../../examples/minimal"
+provider "google" {
+  version = "~> 2.10.0"
+  region  = var.region
+  project = var.project_id
+}
+
+module "vpc" {
+  source  = "terraform-google-modules/network/google"
+  version = "~> 1.5.0"
+
+  project_id              = var.project_id
+  network_name            = "test-network"
+  auto_create_subnetworks = false
+  subnets = [
+    {
+      subnet_name   = "test-subnet"
+      subnet_ip     = "10.0.0.0/28"
+      subnet_region = var.region
+    }
+  ]
+}
+
+module "memcached-instances" {
+  source          = "../../"
   project_id      = var.project_id
+  region          = var.region
+  memcached_ips   = ["10.0.0.10", "10.0.0.11"]
+  subnetwork      = module.vpc.subnets_self_links[0]
   service_account = var.service_account
 }

@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,13 +13,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-/*
-output "instances" {
-  description = "List of self_links for compute instances"
-  value       = ["${google_compute_instance.memcached.*.self_link}"]
+
+output "project_id" {
+  description = "Name of the project in which test fixtures were created. The test suite consumes this value."
+  value       = var.project_id
 }
+
 output "instance_names" {
   description = "List of self_links for compute instances"
-  value       = ["${google_compute_instance.memcached.*.name}"]
-}*/
-
+  value       = module.example.instance_names
+}
