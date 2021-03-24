@@ -14,10 +14,6 @@
  * limitations under the License.
  */
 
-terraform {
-  required_version = "~> 0.11.8"
-}
-
 provider "google" {
   project = "${var.project_name}"
   region  = "${var.region}"

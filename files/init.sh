@@ -35,7 +35,7 @@ install_memcached() {
         echo $OS
         echo $VERSION
     fi
-    
+
 }
 
 create_log_dir()

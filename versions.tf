@@ -1,5 +1,5 @@
 /**
- * Copyright 2018 Google LLC
+ * Copyright 2021 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,22 +14,18 @@
  * limitations under the License.
  */
 
-provider "google" {
-  credentials = "${file("credentials.json")}"
-  version     = "~> 3.53"
-}
+terraform {
+  required_version = ">= 0.13"
+  required_providers {
 
-provider "google-beta" {
-  credentials = "${file("credentials.json")}"
-  version     = "~> 3.53"
-}
+    google = {
+      source  = "hashicorp/google"
+      version = "~> 3.53"
+    }
+  }
 
-resource "random_string" "suffix" {
-  length  = 5
-  special = false
-  upper   = false
-}
+  provider_meta "google" {
+    module_name = "blueprints/terraform/terraform-google-memcached/v1.0.0"
+  }
 
-module "memcached-instances" {
-  source = "../../../"
 }
