@@ -1,6 +1,8 @@
 # terraform-google-memcached
 
-This is a module to bring up a memcached .
+## ⚠ Deprecated
+
+This module has been deprecated. Please switch to the managed service using [terraform-google-memorystore](https://github.com/terraform-google-modules/terraform-google-memorystore/tree/master/modules/memcache). For more information, please refer to the [documentation](https://cloud.google.com/memorystore/docs/memcached/memcached-overview).
 
 ## Inputs
 
