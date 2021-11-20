@@ -54,7 +54,7 @@ resource "google_compute_instance" "memcached" {
   network_interface {
     subnetwork    = "${var.subnetwork}"
     address       = "${var.memcached_ips[count.index]}"
-    access_config = {}                                  // use this only if you want External ip for you Instance
+    access_config = {} // use this only if you want External ip for you Instance
   }
 
   metadata_startup_script = "${file("${path.module}/files/init.sh")}"
@@ -64,7 +64,7 @@ resource "google_compute_instance" "memcached" {
   }
 
   service_account {
-    email  = "${element(var.service_account["email"],0)}"
+    email  = "${element(var.service_account["email"], 0)}"
     scopes = ["cloud-platform"]
   }
 }
